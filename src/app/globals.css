@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #090761 #f0efef;
-    scroll-padding: 0px;
-    scroll-margin: 0px;
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background: transparent
+}
+
+::-webkit-scrollbar-thumb {
+    width: 7px;
+    height: 7px;
+    background: #090761
 }
