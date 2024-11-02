@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar">
-      <body dir="rtl">
+      <body dir="rtl" className="bg-custom-gray">
         <Header />
         <main className="min-h-[calc(100vh-6rem)]">
           {children}
