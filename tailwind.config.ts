@@ -8,9 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: '4rem',
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "custom-blue": "#090761",
+        "custom-sky-blue1": "",
+        "custom-sky-blue2": "",
+        "custom-gray": "#f0efef",
+        "custom-green": "#1e7531",
+        "custom-black1": "#373636",
+        "custom-black2": "#373636",
+        "custom-black3": "#373636",
       },
     },
   },
