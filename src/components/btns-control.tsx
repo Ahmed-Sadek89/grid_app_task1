@@ -3,8 +3,12 @@ import React from 'react'
 
 const BtnsControl = ({ isSubmitting }: { isSubmitting: boolean }) => {
     return (
-        <div className='w-full flex items-center justify-center gap-3 flex-col flex-wrap'>
-            <button type="submit" disabled={isSubmitting} className="rounded-lg py-3 flex items-center justify-center gap-x-2 text-white bg-custom-green w-full">
+        <div className='w-full flex items-center justify-center gap-3 flex-wrap sm:flex-nowrap'>
+            <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`rounded-lg py-3 flex items-center justify-center gap-x-2 text-white bg-custom-green w-full ${isSubmitting ? "cursor-not-allowed" : "cursor-pointer"}`}
+            >
                 <CheckBadgeIcon aria-hidden="true" className="h-5 w-5" />
                 <span>فحص الإجابات</span>
             </button>
