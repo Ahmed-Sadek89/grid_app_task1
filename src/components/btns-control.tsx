@@ -1,7 +1,7 @@
 import { ArrowPathIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
 import React from 'react'
 
-const BtnsControl = ({ isSubmitting }: { isSubmitting: boolean }) => {
+const BtnsControl = ({ isSubmitting }: { isSubmitting?: boolean }) => {
     return (
         <div className='w-full flex items-center justify-center gap-3 flex-wrap sm:flex-nowrap'>
             <button
