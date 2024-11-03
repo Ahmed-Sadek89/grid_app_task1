@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import Header from "@/components/Header/Header";
-import Pagination from "@/components/Pagination/Pagination";
 import "./globals.css";
+import Layout from "@/components/Layout/Layout";
 
 export const metadata: Metadata = {
   title: "GRID APPS | Task1",
@@ -23,11 +22,9 @@ export default function RootLayout({
   return (
     <html lang="ar">
       <body dir="rtl" className="bg-custom-gray">
-        <Header />
-        <main className="min-h-[calc(100vh-6rem)]">
+        <Layout>
           {children}
-        </main>
-        <Pagination />
+        </Layout>
       </body>
     </html>
   );
