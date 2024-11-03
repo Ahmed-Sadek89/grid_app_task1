@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../Header/Header'
-import Pagination from '../Pagination/Pagination'
+import Header from './Header'
+import Pagination from './Pagination'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (

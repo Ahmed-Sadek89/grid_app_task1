@@ -1,24 +1,33 @@
 "use client"
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { useEffect, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 
 const Pagination = () => {
     const router = useRouter();
-    const [currentPage, setCurrentPage] = useState(1)
-    const totalPages = 3
+    const path = usePathname();
+    const totalPages = 3;
+
+    const initialPage = Number(path.split("/")[2]) || 1;
+    const [currentPage, setCurrentPage] = useState(initialPage);
 
     const handlePrevious = () => {
-        if (currentPage > 1) setCurrentPage(prevPage => prevPage - 1)
-    }
+        if (currentPage > 1) {
+            setCurrentPage(prevPage => prevPage - 1);
+        }
+    };
 
     const handleNext = () => {
-        if (currentPage < totalPages) setCurrentPage(prevPage => prevPage + 1)
-    }
+        if (currentPage < totalPages) {
+            setCurrentPage(prevPage => prevPage + 1);
+        }
+    };
 
     useEffect(() => {
-        router.push(`/page/${currentPage}`)
-    }, [router, currentPage])
+        if (path.split('/')[1] === "page") {
+            router.push(`/page/${currentPage}`);
+        }
+    }, [router, currentPage, path]);
 
     return (
         <footer className='pt-5 pb-10 flex w-full items-center justify-center'>
@@ -37,7 +46,10 @@ const Pagination = () => {
                     <button
                         type='button'
                         key={page}
-                        onClick={() => setCurrentPage(page)}
+                        onClick={() => {
+                            setCurrentPage(page)
+                            router.push(`/page/${page}`)
+                        }}
                         className={`relative flex justify-center font-semibold items-center rounded-md w-[40px] h-[40px] border transition duration-300 ${currentPage === page
                             ? 'text-white bg-custom-blue border-transparent'
                             : 'text-custom-blue border-custom-blue hover:text-white hover:border-transparent hover:bg-custom-blue'
@@ -51,16 +63,14 @@ const Pagination = () => {
                     type='button'
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
-                    className={`relative flex justify-center items-center rounded-md w-[40px] h-[40px] text-custom-blue border border-custom-blue transition duration-300 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:text-white hover:border-transparent hover:bg-custom-blue'
-                        }`}
+                    className={`relative flex justify-center items-center rounded-md w-[40px] h-[40px] text-custom-blue border border-custom-blue transition duration-300 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:text-white hover:border-transparent hover:bg-custom-blue'}`}
                 >
                     <span className="sr-only">Next</span>
                     <ChevronLeftIcon aria-hidden="true" className="h-5 w-5" />
-
                 </button>
             </nav>
         </footer>
-    )
-}
+    );
+};
 
-export default Pagination
+export default Pagination;
