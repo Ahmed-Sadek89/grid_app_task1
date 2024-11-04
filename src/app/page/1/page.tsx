@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import React from 'react'
-import MyForm from './_components/Form';
+import MyForm from './_components/MyForm';
 import PageTitle from '@/components/page-title';
 
 export const metadata: Metadata = {

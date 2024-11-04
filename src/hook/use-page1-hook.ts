@@ -9,8 +9,9 @@ const usePage1Hook = () => {
         const correctAnswersCount = userAnswers.filter((answer, index) => answer === answers[index]).length;
 
         setResult(`${correctAnswersCount}/${questions.length}`);
+        localStorage.setItem("page1_result", JSON.stringify(`${correctAnswersCount}/${questions.length}`))
     };
-    return {result, handleSubmit}
+    return { result, handleSubmit }
 }
 
 export default usePage1Hook

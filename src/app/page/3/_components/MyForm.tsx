@@ -6,18 +6,21 @@ import { ItemPage3 } from '@/types';
 import TargetDroppable from './TargetDroppable';
 import MainDroppable from './MainDroppable';
 import useDragEndPage3 from '@/hook/use-drag-end-page3';
+import FormControl from './FormControl';
 
 const MyForm = () => {
 
     const [items, setItems] = React.useState<ItemPage3[]>(initialItems);
     const [animals, setAnimals] = React.useState<ItemPage3[]>([]);
     const [birds, setBirds] = React.useState<ItemPage3[]>([]);
-
+    const resetResult = () => {
+        setItems([...initialItems]);
+        setAnimals([]);
+        setBirds([]);
+    }
     useEffect(() => {
         if (initialItems) {
-            setItems([...initialItems]);
-            setAnimals([]);
-            setBirds([]);
+            resetResult()
         }
     }, []);
 
@@ -36,6 +39,7 @@ const MyForm = () => {
                 <TargetDroppable droppableElements={birds} droppableId='droppableBirds' droppableTitle='طيور' />
                 <TargetDroppable droppableElements={animals} droppableId='droppableAnimals' droppableTitle='حيوانات' />
             </div>
+            <FormControl data={{items, birds, animals}} resetResult={resetResult} />
         </DragDropContext>
     );
 }

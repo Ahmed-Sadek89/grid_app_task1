@@ -5,3 +5,6 @@ export const initialItems = [
     { id: '4', content: 'عصفور' },
     { id: '5', content: 'بومه' },
 ];
+
+export const animalsAnswers = ["1", "2", "3"]
+export const birdsAnswers = ["4", "5"]
