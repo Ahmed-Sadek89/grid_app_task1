@@ -21,9 +21,6 @@ npm run dev
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### Time for developing
 start_date: 11/2/2024 9:18 PM
 end_date: 11/4/2024 3:38 AM
