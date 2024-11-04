@@ -3,3 +3,8 @@ export interface dragedItemsPage2 {
     option: string;
     rank: string;
 }
+
+export interface ItemPage3 {
+    id: string;
+    content: string;
+}

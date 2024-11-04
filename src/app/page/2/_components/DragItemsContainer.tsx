@@ -1,4 +1,4 @@
-import { Droppable, DroppableProvided } from '@hello-pangea/dnd'
+import { Droppable } from '@hello-pangea/dnd'
 import React from 'react'
 import DragItems from './DragItems'
 import { dragedItemsPage2 } from '@/types'
